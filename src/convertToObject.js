@@ -12,7 +12,9 @@ function convertToObject(sourceString) {
     .filter((el) => el.length)
     .map((el) => el.split(':'))
     .reduce((styles, elem) => {
-      styles[elem[0].trim()] = elem[1].trim();
+      if (elem.length === 2) {
+        styles[elem[0].trim()] = elem[1].trim();
+      }
 
       return styles;
     }, {});
